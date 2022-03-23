@@ -11,7 +11,6 @@
     <title>Aula PHP</title>
   </head>
   <body>
-        
     <?php
       $cliente = array();
 
@@ -42,10 +41,10 @@
                       </tr>
                   </thead>
         <tbody>";
-
+echo "Primeira forma - PHP Direto";
       for ($i=0; $i < count($cliente); $i++) {
-        $tabela .= "<tr>;
-                      <th scope=\"row\">".$i."</th>
+        $tabela .= "<tr>
+                      <th scope=\"row\">".($i+1)."</th>
                       <td>".$cliente["Nome"][$i]."</td>
                       <td>".$cliente["CPF"][$i]."</td>
                       <td>".$cliente["RG"][$i]."</td>
@@ -59,35 +58,32 @@
 
      // echo "<table class=\"table table-striped\>"";
     ?>
-    
+      
       <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">RG</th>
           </tr>
         </thead>
         <tbody>
+Segunda forma - HTML + PHP
+          <?php
+            for ($i = 0; $i < count($cliente); $i++) {
+              
+          
+          ?>
+          
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row"><?php echo ($i+1)?></th>
+            <td><?php echo $cliente["Nome"][$i]?></td>
+            <td><?php echo $cliente["CPF"][$i]?></td>
+            <td><?php echo $cliente["RG"][$i]?></td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          <?php  }?>
+
         </tbody>
       </table>
 
